@@ -1,8 +1,8 @@
+import Image from 'next/image'; // Import the Image component from next/image
 import { useEffect, useState } from 'react';
 import { fetchImages } from '../lib/github';
 
 const Gallery = ({ images, repo }) => {
-  // Use dark mode styles directly
   const containerStyle = {
     backgroundColor: '#121212',
     color: '#e0e0e0',
@@ -17,7 +17,7 @@ const Gallery = ({ images, repo }) => {
     borderRadius: '8px',
     border: '1px solid #444',
     backgroundColor: '#2c2c2c',
-    margin: '10px', // Optional: Add margin to separate cards
+    margin: '10px',
   };
 
   return (
@@ -30,18 +30,12 @@ const Gallery = ({ images, repo }) => {
       }}>
         {images.map((image, index) => (
           <div key={index} style={cardStyle}>
-            <img
+            <Image
               src={image.thumbnailUrl}
               alt={`Thumbnail ${index}`}
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                cursor: 'pointer',
-              }}
+              layout="fill"
+              objectFit="cover"
+              style={{ cursor: 'pointer' }}
               onClick={() => window.open(image.fullUrl, '_blank')}
             />
           </div>
@@ -52,22 +46,9 @@ const Gallery = ({ images, repo }) => {
 };
 
 // Fetch the list of repositories for static paths
-export async function getStaticPaths() {
-  const repos = [
-    'trip-adalaj-and-agora-mall'
-  ];
-
-  const paths = repos.map(repo => ({ params: { repo } }));
-
-  return { paths, fallback: false };
-}
-
-// Fetch the images for the given repository
-export async function getStaticProps(context) {
-  const { repo } = context.params;
-  const images = await fetchImages(repo);
-
-  return { props: { images, repo } };
+export async function getStaticProps() {
+  const images = await fetchImages('trip-adalaj-and-agora-mall'); // Adjust as needed
+  return { props: { images, repo: 'trip-adalaj-and-agora-mall' } };
 }
 
 export default Gallery;
