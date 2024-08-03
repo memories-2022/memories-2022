@@ -1,26 +1,21 @@
 import Image from 'next/image';
-import { fetchImages } from '../lib/github';
 
-const Gallery = ({ images, repo }) => {
+const Gallery = ({ repo, images }) => {
   const containerStyle = {
-    backgroundColor: '#121212',
-    color: '#e0e0e0',
-    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     padding: '20px',
   };
 
   const cardStyle = {
-    position: 'relative',
-    paddingTop: '100%', // Aspect ratio 1:1 (square)
-    overflow: 'hidden',
+    border: '1px solid #ccc',
     borderRadius: '8px',
-    border: '1px solid #444',
-    backgroundColor: '#2c2c2c',
-    margin: '10px',
+    overflow: 'hidden',
   };
 
   return (
-    <div style={containerStyle}">
+    <div style={containerStyle}>
       <h1 style={{ color: '#e0e0e0' }}>2022 - {repo}</h1>
       <div style={{
         display: 'grid',
@@ -43,11 +38,5 @@ const Gallery = ({ images, repo }) => {
     </div>
   );
 };
-
-// Fetch the list of repositories for static paths
-export async function getStaticProps() {
-  const images = await fetchImages('trip-adalaj-and-agora-mall'); // Adjust as needed
-  return { props: { images, repo: 'trip-adalaj-and-agora-mall' } };
-}
 
 export default Gallery;
