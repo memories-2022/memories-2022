@@ -43,3 +43,11 @@ const Gallery = ({ images, repo }) => {
     </div>
   );
 };
+
+// Fetch the list of repositories for static paths
+export async function getStaticProps() {
+  const images = await fetchImages('trip-adalaj-and-agora-mall'); // Adjust as needed
+  return { props: { images, repo: 'trip-adalaj-and-agora-mall' } };
+}
+
+export default Gallery;
