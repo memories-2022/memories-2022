@@ -1,35 +1,28 @@
-import Image from 'next/image';
+// pages/gallery.js
+import { useEffect, useState } from 'react';
+import { fetchImages } from '../lib/github';
 
-const Gallery = ({ repo, images }) => {
-  const containerStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: '20px',
-  };
+const Gallery = () => {
+  const [images, setImages] = useState([]);
 
-  const cardStyle = {
-    border: '1px solid #ccc',
-    borderRadius: '8px',
-    overflow: 'hidden',
-  };
+  useEffect(() => {
+    const getImages = async () => {
+      const images = await fetchImages();
+      setImages(images);
+    };
+    getImages();
+  }, []);
 
   return (
-    <div style={containerStyle}>
-      <h1 style={{ color: '#e0e0e0' }}>2022 - {repo}</h1>
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
-        gap: '10px',
-      }}>
+    <div>
+      <h1>Image Gallery</h1>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {images.map((image, index) => (
-          <div key={index} style={cardStyle}>
-            <Image
+          <div key={index} style={{ margin: '10px' }}>
+            <img
               src={image.thumbnailUrl}
               alt={`Thumbnail ${index}`}
-              layout="fill"
-              objectFit="cover"
-              style={{ cursor: 'pointer' }}
+              style={{ width: '200px', cursor: 'pointer' }}
               onClick={() => window.open(image.fullUrl, '_blank')}
             />
           </div>
