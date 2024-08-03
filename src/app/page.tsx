@@ -3,7 +3,10 @@
 import '../app/globals.css';
 
 export default function Home() {
-  const repos = ['trip-adalaj-and-agora-mall'];
+  const repos = [
+    'trip-adalaj-and-agora-mall',
+    'Ayushis-Brothers-Merriage'
+  ];
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-gradient-to-b from-background-start to-background-end dark:from-gray-900 dark:to-gray-800">
