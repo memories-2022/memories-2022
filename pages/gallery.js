@@ -1,5 +1,4 @@
-import Image from 'next/image'; // Import the Image component from next/image
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { fetchImages } from '../lib/github';
 
 const Gallery = ({ images, repo }) => {
@@ -22,7 +21,7 @@ const Gallery = ({ images, repo }) => {
 
   return (
     <div style={containerStyle}>
-      <h1>2022 - {repo}</h1>
+      <h1 style={{ color: '#e0e0e0' }}>2022 - {repo}</h1>
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
