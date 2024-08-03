@@ -20,7 +20,7 @@ const Gallery = ({ images, repo }) => {
   };
 
   return (
-    <div style={containerStyle} style="background-color:#2c2c2c; color: '#e0e0e0'">
+    <div style={containerStyle}">
       <h1 style={{ color: '#e0e0e0' }}>2022 - {repo}</h1>
       <div style={{
         display: 'grid',
