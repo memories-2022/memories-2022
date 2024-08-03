@@ -3,7 +3,7 @@ import { fetchImages } from '../lib/github';
 
 const Gallery = ({ images, repo }) => {
   const containerStyle = {
-    backgroundColor: '#121212',
+    background-color: '#121212',
     color: '#e0e0e0',
     minHeight: '100vh',
     padding: '20px',
