@@ -8,7 +8,7 @@ const Gallery = ({ images, repo }) => {
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
-        gap: '10px'
+        gap: '10px',
       }}>
         {images.map((image, index) => (
           <div key={index} style={{
