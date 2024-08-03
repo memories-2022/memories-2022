@@ -5,7 +5,17 @@ import '../app/globals.css';
 export default function Home() {
   const repos = [
     'trip-adalaj-and-agora-mall',
-    'Ayushis-Brothers-Merriage'
+    'Ayushis-Brothers-Merriage',
+    'Christmas',
+    'Company-Extras',
+    'consines-monster-pizza-party',
+    'dhaval-extras',
+    'Dixadidi-s-merriage',
+    'Egg-world-with-papa',
+    'Keval-s-Huddi-photos',
+    'Movie-Drashum',
+    'Novotel',
+    'Tamjam-Party-with-IP-Team'
   ];
 
   return (
