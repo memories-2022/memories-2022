@@ -42,7 +42,8 @@ const Gallery = ({ images, repo }) => {
 // Fetch the list of repositories for static paths
 export async function getStaticPaths() {
   const repos = [
-    'trip-adalaj-and-agora-mall'
+    'trip-adalaj-and-agora-mall',
+    'Ayushis-Brothers-Merriage'
   ];
 
   const paths = repos.map(repo => ({ params: { repo } }));
