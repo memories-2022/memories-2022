@@ -15,7 +15,8 @@ export default function Home() {
     'Keval-s-Huddi-photos',
     'Movie-Drashum',
     'Novotel',
-    'Tamjam-Party-with-IP-Team'
+    'Tamjam-Party-with-IP-Team',
+    'aditi-phone-backups-1'
   ];
 
   return (
