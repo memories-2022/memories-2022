@@ -53,7 +53,8 @@ export async function getStaticPaths() {
     'Keval-s-Huddi-photos',
     'Movie-Drashum',
     'Novotel',
-    'Tamjam-Party-with-IP-Team'
+    'Tamjam-Party-with-IP-Team',
+    'aditi-phone-backups-1'
   ];
 
   const paths = repos.map(repo => ({ params: { repo } }));
